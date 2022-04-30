@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    {% for about in about %}
+        <h1 class="mb-0">
+            {{about.name}}
+            <span class="text-primary">{{about.lastname}}</span>
+        </h1>
+        <div class="subheading mb-5">
+            {{about.degree}} <br>
+            {{about.postgraduate}} <br>
+            {{about.address}} · Cel: {{about.phone}} ·
+            <a href="mailto:name@email.com">{{about.mail}}</a>
+        </div>
+        <p class="lead mb-5">{{about.profile|safe}}</p> <br/><br/>
+        <div class="social-icons">
+            <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-icon" href="#!"><i class="fab fa-instagram"></i></a>
+            <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <br/>
+        <hr class="m-0" />
+    {% endfor %}
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}awards{% endblock %}
+
+{% block content %}
+    <h2 class="mb-5">Awards & Certifications</h2>
+    {% for awards in awards %}
+        <ul class="fa-ul mb-0">
+            <li>
+                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                {{awards.type}} - {{awards.name}} - {{awards.institution}} - {{awards.observation|safe}} -- {{awards.date}}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

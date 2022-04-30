@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}skills{% endblock %}
+
+{% block content %}
+    {% for skills in skills %}
+            <h2 class="mb-5">Skills</h2>{{experience.position}}
+            <div class="subheading mb-3">Habilidades</div>
+            <ul class="fa-ul mb-0">
+                {{skills.skills|safe}}
+            </ul>
+            <div class="subheading mb-3">Aptitudes principales</div>
+            <ul class="fa-ul mb-0">
+                {{skills.core_skills|safe}}
+            </ul>
+            <div class="subheading mb-3">Herramientas informaticas</div>
+            <ul class="fa-ul mb-0">
+                {{skills.computer_tools|safe}}
+            </ul>
+            <hr class="m-0" />
+            <br/>
+    {% endfor %}
+{% endblock %}
+

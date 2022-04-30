@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}experience{% endblock %}
+
+{% block content %}
+    <h2 class="mb-5">Experience</h2>
+    {% for experience in experience %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <h3 class="mb-0">{{experience.position}}</h3>
+                <div class="subheading mb-3">{{experience.company}}</div>
+                <p>{{experience.Functions|safe}}</p>
+            </div>
+            {% if experience.present == "A" %}
+                <div class="flex-shrink-0"><span class="text-primary">{{experience.start_date}} --  Actualmente </span></div>
+            {% endif %}
+            {% if experience.present != "A" %}
+                <div class="flex-shrink-0"><span class="text-primary">{{experience.start_date}} --  {{experience.final_date}} </span></div>
+            {% endif %}
+        </div>
+        <hr class="m-0" />
+        <br/>
+    {% endfor%}
+{% endblock %}
+

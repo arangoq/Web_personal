@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}education{% endblock %}
+
+{% block content %}
+    <h2 class="mb-5">Education</h2>
+    {% for education in education %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <h3 class="mb-0">{{education.university}}</h3>
+                <div class="subheading mb-3">{{education.degree}}</div>
+                <div>{{education.note|safe}}</div>
+            </div>
+             {% if education.status == "C" %}
+                <div class="flex-shrink-0"><span class="text-primary">{{education.start_date}} --  Cursando </span></div>
+            {% endif %}
+            {% if education.status == "G" %}
+                <div class="flex-shrink-0"><span class="text-primary">{{education.start_date}} -- {{education.final_date}} -- Graduada </span></div>
+            {% endif %}
+        </div>
+        <hr class="m-0" />
+    {% endfor %}
+{% endblock %}
